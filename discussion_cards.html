@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Literacy Discussion Cards</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #E0E7FF;
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+            --bg-page: #F3F4F6;
+            --bg-doc: #FFFFFF;
+            --border-color: #D1D5DB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 2rem 0;
+        }
+
+        .document-container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background: var(--bg-doc);
+            padding: 15mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-gray);
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 1fr; /* Ensure equal height rows */
+            gap: 12mm;
+        }
+
+        .card {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            background-color: #FAFAFA;
+            display: flex;
+            flex-direction: column;
+            page-break-inside: avoid; /* Prevent card splitting on print */
+        }
+
+        .card-topic {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .card-scenario {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .card-prompts h4 {
+            font-size: 12px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .card-prompts ul {
+            padding-left: 18px;
+        }
+
+        .card-prompts li {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 6px;
+        }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            background-color: #4338CA;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 15mm;
+            }
+
+            body {
+                background-color: transparent;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .document-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: none;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            /* Cut lines for scissors */
+            .card {
+                border: 1px dashed #000;
+                background-color: #FFF;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Cards to PDF (A4)</button>
+
+    <div class="document-container">
+        
+        <div class="header">
+            <h1>"What Would You Do?" Scenario Cards</h1>
+            <p>Cut these cards out and use them during the workshop to spark discussion. How can we use Total Physical Response (TPR) and simple routines to handle these moments?</p>
+        </div>
+
+        <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <span class="card-topic">Transitions & Time</span>
+                <p class="card-scenario">"During center time, a student refuses to put the listening station iPad away when the visual timer goes off, and starts crying."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>What physical action (TPR) might help them let go?</li>
+                        <li>Is there a transition song we can introduce?</li>
+                        <li>How could this connect to a "How We Organize Ourselves" unit?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <span class="card-topic">Real vs. Pretend</span>
+                <p class="card-scenario">"A child sees a cartoon dog on a tablet and insists it's a real pet that can come live in the classroom with them."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>How can you distinguish 'media world' from 'real world' using dramatic play?</li>
+                        <li>Can we build a sorting activity out of this?</li>
+                        <li>How does this connect to our 'Where We Are in Place & Time' unit?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <span class="card-topic">Ask a Grown-Up</span>
+                <p class="card-scenario">"A child wants to play with the interactive whiteboard and keeps randomly tapping the screen before you are ready for the lesson."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>What is the simple, repetitive vocabulary to correct this? ("Hands in lap", "Ask first")</li>
+                        <li>What offline game could practice this boundary?</li>
+                        <li>Which Learner Profile attribute fits best here? (e.g. Principled)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <span class="card-topic">Faces First</span>
+                <p class="card-scenario">"You are trying to speak to a student, but they are completely transfixed staring over your shoulder at a peer watching a video."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>What is a physical cue/action we can practice to redirect attention to faces?</li>
+                        <li>Why is teaching "faces first" critical in the digital age?</li>
+                        <li>How can we model this during Morning Meeting?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <span class="card-topic">Kind Words & Turns</span>
+                <p class="card-scenario">"Two students are fighting over an unplugged toy cell phone in the dramatic play center, acting out a 'gaming' scenario."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>How can we use offline toys to practice online sharing?</li>
+                        <li>What vocabulary can we give them to "ask for a turn"?</li>
+                        <li>How does this shape their understanding of cyberbullying later on?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <span class="card-topic">Identity / My Trusted Adults</span>
+                <p class="card-scenario">"An ad pops up on an educational game, and a student gets frustrated and starts hitting the tablet to make it go away."</p>
+                <div class="card-prompts">
+                    <h4>Discussion Prompts</h4>
+                    <ul>
+                        <li>What physical action can we teach instead of 'hitting' or trying to click it themselves? (e.g., Raise hand, say 'Oops!')</li>
+                        <li>How do we normalize digital "accidents"?</li>
+                        <li>Who are the 'trusted adults' in this classroom they can ask?</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

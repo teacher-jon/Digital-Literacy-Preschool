@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYP Unit Mapping Matrix</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #E0E7FF;
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+            --bg-page: #eef2f6;
+            --bg-doc: #FFFFFF;
+            --border-color: #D1D5DB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.4;
+            padding: 2rem 0;
+        }
+
+        .document-container {
+            /* Using landscape A4 width/padding for a matrix */
+            max-width: 297mm; 
+            margin: 0 auto;
+            background: var(--bg-doc);
+            padding: 15mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 12px;
+        }
+
+        .header-content h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .header-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            table-layout: fixed;
+        }
+
+        .matrix-table th, .matrix-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        /* Column sizing for optimal fit */
+        .matrix-table th:first-child { width: 14%; } /* PYP Themes */
+        .matrix-table th:nth-child(n+2) { width: 14.3%; } /* Concept columns */
+
+        .matrix-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .matrix-table td.theme-col {
+            background-color: #F9FAFB;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            color: var(--text-dark);
+        }
+
+        .matrix-table td.theme-col span {
+            display: block;
+            font-size: 10px;
+            color: var(--text-gray);
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            min-height: 80px;
+            padding: 6px;
+            border: 1px dashed var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 11px;
+            resize: none;
+            background-color: #FAFAFA;
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+
+        textarea:focus {
+            outline: none;
+            border: 1px solid var(--primary);
+            background-color: #FFF;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            background-color: #4338CA;
+        }
+
+        /* Print Specific Styles - LANDSCAPE */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 15mm;
+            }
+
+            body {
+                background-color: transparent;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .document-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: none;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .matrix-table th, .matrix-table td {
+                border: 1px solid #000; /* Darker borders for print */
+                padding: 4px; /* Tighter padding for print */
+            }
+
+            /* Make inputs look seamless on printing */
+            textarea {
+                border: none;
+                background-color: transparent;
+                padding: 0;
+                min-height: 50px;
+            }
+
+            /* Unfilled textareas keep a soft blank space when printed */
+            textarea:placeholder-shown {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Matrix to PDF (A4 Landscape)</button>
+
+    <div class="document-container">
+        <div class="header">
+            <div class="header-content">
+                <h1>PYP Transdisciplinary Theme Mapping Matrix</h1>
+                <p>A brainstorming tool for weaving Pre-K digital literacy offline themes into your units of inquiry.</p>
+            </div>
+        </div>
+
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>PYP Themes</th>
+                    <th>Transitions & Time<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Stopping activities)</span></th>
+                    <th>Faces First<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Looking at people)</span></th>
+                    <th>Ask a Grown-Up<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Permission/Safety)</span></th>
+                    <th>Kind Words & Turns<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Sharing technology)</span></th>
+                    <th>Real vs. Picture<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Understanding identity)</span></th>
+                    <th>Real vs. Pretend<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Media Literacy)</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="theme-col">Who We Are<span>Body, mind, relationships, health, identity</span></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Using sand timers as self-management tools in play."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Discussing eye contact when making friends."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Drawing self-portraits vs looking in a mirror."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                </tr>
+                <tr>
+                    <td class="theme-col">How We Express Ourselves<span>Ideas, feelings, culture, discovering</span></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Putting down toys to listen to peer stories."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Sorting out cartoon characters from real acting/play."></textarea></td>
+                </tr>
+                <tr>
+                    <td class="theme-col">Sharing the Planet<span>Rights, responsibilities, communities, resources</span></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Taking turns with a shared classroom digital camera."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                </tr>
+                <tr>
+                    <td class="theme-col">How the World Works<span>Natural world, interaction, scientific principles</span></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Asking before pressing buttons on experiments or tools."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                </tr>
+                <tr>
+                    <td class="theme-col">How We Organize Ourselves<span>Systems, communities, decision-making</span></td>
+                    <td><textarea class="auto-resize" placeholder="e.g. Creating visual schedules for 'tech time' vs 'floor time'."></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                    <td><textarea class="auto-resize" placeholder=""></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- JavaScript to manage auto-resize and local storage -->
+    <script>
+        const textareas = document.querySelectorAll('.auto-resize');
+        
+        textareas.forEach((textarea, index) => {
+            const resize = () => {
+                textarea.style.height = 'auto'; // Reset
+                textarea.style.height = textarea.scrollHeight + 'px'; // Set to scroll
+            }
+            
+            // Wait for DOM layout then resize initially
+            requestAnimationFrame(resize);
+            textarea.addEventListener('input', resize);
+            
+            // Unique storage key based on matrix cell index
+            const storageKey = 'pyp-matrix-cell-' + index;
+            
+            if (localStorage.getItem(storageKey)) {
+                textarea.value = localStorage.getItem(storageKey);
+                requestAnimationFrame(resize);
+            }
+            
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(storageKey, textarea.value);
+            });
+        });
+    </script>
+</body>
+</html>
