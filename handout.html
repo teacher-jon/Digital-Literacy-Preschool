@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Years Digital Literacy Handout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #E0E7FF;
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+            --bg-page: #F3F4F6;
+            --bg-doc: #FFFFFF;
+            --border-color: #D1D5DB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 2rem 0;
+        }
+
+        .document-container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background: var(--bg-doc);
+            padding: 20mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .idea-bank-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+            font-size: 13px;
+        }
+
+        .idea-bank-table th, .idea-bank-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: left;
+        }
+
+        .idea-bank-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .help-text {
+            display: block;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            background-color: #FAFAFA;
+            transition: border-color 0.2s;
+            overflow: hidden; /* For auto-resize */
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #FFF;
+        }
+
+        .radio-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .radio-label input {
+            margin-right: 8px;
+            accent-color: var(--primary);
+        }
+
+        .page-break {
+            height: 0;
+            box-shadow: none;
+            border: 0;
+        }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            background-color: #4338CA;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+
+            body {
+                background-color: transparent;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .document-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: none;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            /* Make inputs look like regular text or lined paper */
+            input[type="text"], textarea {
+                border: none;
+                border-bottom: 1px solid var(--text-gray);
+                background-color: transparent;
+                border-radius: 0;
+                padding: 4px 0;
+            }
+
+            /* Make empty textareas look like writing lines */
+            textarea:placeholder-shown, input[type="text"]:placeholder-shown {
+                border: none;
+                background-image: linear-gradient(to bottom, transparent 95%, var(--border-color) 95%);
+                background-size: 100% 24px;
+                line-height: 24px;
+            }
+
+            .radio-group {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print to PDF (A4)</button>
+
+    <div class="document-container">
+        <!-- PAGE 1: Reference Material -->
+        <h1>Early Years Digital Literacy</h1>
+        <p>A reference guide translating abstract K-8 concepts into offline, developmentally appropriate behaviors for 3 and 4-year-olds.</p>
+
+        <h2>Translation Core Map</h2>
+        <table class="idea-bank-table">
+            <thead>
+                <tr>
+                    <th>Broad Topic</th>
+                    <th>Pre-K Theme</th>
+                    <th>Offline Action / Focus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Healthy Habits</td>
+                    <td><strong>Transitions & Time</strong></td>
+                    <td>Practicing how to stop an activity and put a device away without a meltdown.</td>
+                </tr>
+                <tr>
+                    <td>Relationships</td>
+                    <td><strong>Faces First</strong></td>
+                    <td>Looking at the person talking to us instead of a screen.</td>
+                </tr>
+                <tr>
+                    <td>Privacy & Safety</td>
+                    <td><strong>Ask a Grown-Up</strong></td>
+                    <td>Knowing to always ask an adult before touching a screen.</td>
+                </tr>
+                <tr>
+                    <td>Cyberbullying</td>
+                    <td><strong>Kind Words & Turns</strong></td>
+                    <td>Sharing technology, taking turns, and recognizing feelings.</td>
+                </tr>
+                <tr>
+                    <td>Identity</td>
+                    <td><strong>Real Me vs Picture</strong></td>
+                    <td>Understanding a photo or drawing represents a real person.</td>
+                </tr>
+                <tr>
+                    <td>Media Literacy</td>
+                    <td><strong>Real vs. Pretend</strong></td>
+                    <td>Sorting real things from things in books, shows, or games.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Page break for printing into A4 -->
+        <div class="page-break"></div>
+
+        <!-- PAGE 2: Fillable Mapping Template -->
+        <h1>PYP Unit Mapping Form</h1>
+        <p>Design an offline routine for your early learners integrated with your current PYP unit.</p>
+
+        <form onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <label>1. Define Your Concept</label>
+                <span class="help-text">What is the core topic? (e.g., Privacy & Safety, Media Literacy)</span>
+                <input type="text" placeholder="Type core topic here..." style="margin-bottom: 12px;">
+                
+                <span class="help-text">Translate it into a physical action or routine for a 3-4 year old:</span>
+                <textarea class="auto-resize" rows="2" placeholder="e.g., Ask a Grown-Up before touching, looking at faces..."></textarea>
+            </div>
+
+            <div class="form-group" style="padding-top: 12px;">
+                <label>2. Connect to the PYP</label>
+                <span class="help-text">Select your current Transdisciplinary Theme:</span>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="who"> Who We Are</label>
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="where"> Where We Are in Place & Time</label>
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="express"> How We Express Ourselves</label>
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="works"> How the World Works</label>
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="organize"> How We Organize Ourselves</label>
+                    <label class="radio-label"><input type="radio" name="pypTheme" value="sharing"> Sharing the Planet</label>
+                </div>
+                <span class="help-text">Relevant PYP Learner Profile Attributes (e.g., Principled, Caring):</span>
+                <input type="text" placeholder="Type attributes here...">
+            </div>
+
+            <div class="form-group" style="padding-top: 12px;">
+                <label>3. The Classroom Experience</label>
+                <span class="help-text">Circle Time / Morning Meeting Introduction:</span>
+                <textarea class="auto-resize" rows="2" placeholder="How will you introduce this? (e.g., Sorting activity, a story...)"></textarea>
+                
+                <span style="display: block; margin-top: 12px;" class="help-text">Dramatic Play / Center Integration:</span>
+                <textarea class="auto-resize" rows="2" placeholder="How can they practice via play? (e.g., unplugged keyboards)"></textarea>
+
+                <span style="display: block; margin-top: 12px;" class="help-text">The Physical Routine (Total Physical Response):</span>
+                <textarea class="auto-resize" rows="2" placeholder="What is the physical action? (e.g., Hands in lap, raising hand)"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript to auto-resize textareas as they type -->
+    <script>
+        const textareas = document.querySelectorAll('.auto-resize');
+        
+        textareas.forEach(textarea => {
+            // Function to resize based on content
+            const resize = () => {
+                textarea.style.height = 'auto'; // Reset height
+                textarea.style.height = textarea.scrollHeight + 'px'; // Set to scroll height
+            }
+            
+            // Wait for DOM layout then resize initially
+            requestAnimationFrame(resize);
+            
+            // Add event listeners for typing
+            textarea.addEventListener('input', resize);
+            
+            // Save state to local storage so they don't lose work
+            const storageKey = 'pyp-template-' + textarea.placeholder.substring(0, 20);
+            
+            if (localStorage.getItem(storageKey)) {
+                textarea.value = localStorage.getItem(storageKey);
+                requestAnimationFrame(resize);
+            }
+            
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(storageKey, textarea.value);
+            });
+        });
+
+        // Do the same local storage save for text inputs and radios
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+            const storageKey = 'pyp-input-' + input.placeholder.substring(0, 20);
+            if (localStorage.getItem(storageKey)) {
+                input.value = localStorage.getItem(storageKey);
+            }
+            input.addEventListener('input', () => {
+                localStorage.setItem(storageKey, input.value);
+            });
+        });
+        
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(radio => {
+            const storageKey = 'pyp-radio-theme';
+            if (localStorage.getItem(storageKey) === radio.value) {
+                radio.checked = true;
+            }
+            radio.addEventListener('change', () => {
+                if(radio.checked) {
+                    localStorage.setItem(storageKey, radio.value);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
