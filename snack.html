@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The S.N.A.C.K. Protocol</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #E0E7FF;
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+            --bg-page: #F3F4F6;
+            --bg-doc: #FFFFFF;
+            --border-color: #D1D5DB;
+            --accent: #F59E0B; /* To give the acronym some pop */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 2rem 0;
+        }
+
+        .document-container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background: var(--bg-doc);
+            padding: 20mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .acronym-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .acronym-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .letter-badge {
+            background-color: var(--primary);
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+        }
+
+        .content h2 {
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content p {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .example-box {
+            margin-top: 2.5rem;
+            background-color: #FAFAFA;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            page-break-inside: avoid;
+        }
+
+        .example-box h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .example-list {
+            list-style: none;
+        }
+        
+        .example-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .example-list strong {
+            color: var(--text-dark);
+        }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            background-color: #4338CA;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+
+            body {
+                background-color: transparent;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .document-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: none;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            .print-btn {
+                display: none;
+            }
+            
+            .letter-badge {
+                border: 2px solid var(--primary);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Protocol to PDF (A4)</button>
+
+    <div class="document-container">
+        
+        <div class="header">
+            <h1>S.N.A.C.K.</h1>
+            <p>A Preschool-Specific Framework for Digital Literacy Mapping</p>
+        </div>
+
+        <div class="acronym-list">
+            
+            <!-- S -->
+            <div class="acronym-item">
+                <div class="letter-badge">S</div>
+                <div class="content">
+                    <h2>Simplify the Concept</h2>
+                    <p>Take the abstract, older-grade concept (e.g., Cyberbullying, Digital Footprints, Screen Time Management) and strip it down to its most foundational, offline social-emotional core.</p>
+                </div>
+            </div>
+
+            <!-- N -->
+            <div class="acronym-item">
+                <div class="letter-badge">N</div>
+                <div class="content">
+                    <h2>Name the Habit</h2>
+                    <p>Give the specific behavior a simple, repetitive 2-3 word phrase that a 3-year-old can easily memorize (e.g., "Faces First", "Ask a Grown-up", "Gentle Hands").</p>
+                </div>
+            </div>
+
+            <!-- A -->
+            <div class="acronym-item">
+                <div class="letter-badge">A</div>
+                <div class="content">
+                    <h2>Anchor to the PYP</h2>
+                    <p>Explicitly map the simplified habit to your current Transdisciplinary Theme (e.g., Who We Are) or a specific Learner Profile attribute (e.g., Principled, Caring).</p>
+                </div>
+            </div>
+
+            <!-- C -->
+            <div class="acronym-item">
+                <div class="letter-badge">C</div>
+                <div class="content">
+                    <h2>Center Play</h2>
+                    <p>How can this habit be practiced safely using <strong>unplugged</strong> toys in the dramatic play center? (e.g., using toy phones to practice turn-taking, or sorting cards for 'real vs. pretend').</p>
+                </div>
+            </div>
+
+            <!-- K -->
+            <div class="acronym-item">
+                <div class="letter-badge">K</div>
+                <div class="content">
+                    <h2>Kinesthetic Response</h2>
+                    <p>What is the Total Physical Response (TPR)? Define the exact muscle memory or physical body action the child will do to reinforce the habit (e.g., Hands in lap, covering ears, handing a transition token to a teacher).</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="example-box">
+            <h3>Example: Mapping "Media Literacy & Fact vs. Fiction"</h3>
+            <ul class="example-list">
+                <li><strong>S (Simplify):</strong> Telling the difference between the screen world and the real world.</li>
+                <li><strong>N (Name):</strong> "Real vs. Pretend"</li>
+                <li><strong>A (Anchor):</strong> <em>Where We Are in Place & Time</em> (Understanding our physical world).</li>
+                <li><strong>C (Center):</strong> A sensory bin sorting activity with plastic real animals vs. printed cartoon animals.</li>
+                <li><strong>K (Kinesthetics):</strong> Having children physically point to their own eyes and then point to the object when deciphering "real" vs "cartoon".</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
