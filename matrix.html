@@ -191,7 +191,44 @@
             textarea:placeholder-shown {
                 border: none;
             }
+
+            .gold-reference {
+                page-break-inside: avoid;
+            }
         }
+
+        .gold-reference {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F9FAFB;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .gold-reference h4 {
+            color: var(--primary);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .gold-reference ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .gold-reference li {
+            font-size: 10px;
+            color: var(--text-gray);
+        }
+
+        .gold-reference strong {
+            color: var(--text-dark);
+        }
+
     </style>
 </head>
 <body>
@@ -210,12 +247,12 @@
             <thead>
                 <tr>
                     <th>PYP Themes</th>
-                    <th>Transitions & Time<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Stopping activities)</span></th>
-                    <th>Faces First<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Looking at people)</span></th>
-                    <th>Ask a Grown-Up<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Permission/Safety)</span></th>
-                    <th>Kind Words & Turns<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Sharing technology)</span></th>
-                    <th>Real vs. Picture<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Understanding identity)</span></th>
-                    <th>Real vs. Pretend<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Media Literacy)</span></th>
+                    <th>Transitions & Time<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Stopping activities)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 1b, 1c</div></th>
+                    <th>Faces First<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Looking at people)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 10a, 2b</div></th>
+                    <th>Ask a Grown-Up<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Permission/Safety)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 3b, 28</div></th>
+                    <th>Kind Words & Turns<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Sharing technology)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 3a, 1a</div></th>
+                    <th>Real Me vs. Pic Me<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Understanding identity)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 14a, 29</div></th>
+                    <th>Real vs. Pretend<br><span style="font-size:10px; font-weight:normal; color:#4F46E5;">(Media Literacy)</span><br><div style="margin-top: 6px; font-size: 10px; background: #e0e7ff; color: #4338CA; border-radius: 12px; padding: 2px 6px; display: inline-block;">GOLD®: 13, 14b</div></th>
                 </tr>
             </thead>
             <tbody>
@@ -266,6 +303,24 @@
                 </tr>
             </tbody>
         </table>
+
+        <div class="gold-reference">
+            <h4>TS GOLD® Developmental Milestones Reference (Levels 4-6)</h4>
+            <ul>
+                <li><strong>1a:</strong> Comforts self by seeking out special object or person (L4).</li>
+                <li><strong>1b:</strong> Manages transitions with occasional reminders (L4) / independently (L6).</li>
+                <li><strong>1c:</strong> Seeks to do things for self (L4).</li>
+                <li><strong>2b:</strong> Demonstrates concern for others' feelings (L4).</li>
+                <li><strong>3a:</strong> Takes turns (L4) / Initiates sharing of materials (L6).</li>
+                <li><strong>3b:</strong> Seeks adult help to resolve social problems (L4).</li>
+                <li><strong>10a:</strong> Attends to brief conversations (L4) / Converses with exchanges (L6).</li>
+                <li><strong>13:</strong> Places objects in groups based on a single characteristic (L4).</li>
+                <li><strong>14a:</strong> Draws or constructs and identifies what it is (L4).</li>
+                <li><strong>14b:</strong> Acts out scenarios (L4) / Sustains play scenario (L6).</li>
+                <li><strong>28:</strong> Uses technology to accomplish goals or gain information.</li>
+                <li><strong>29:</strong> Recognizes own characteristics and preferences.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- JavaScript to manage auto-resize and local storage -->

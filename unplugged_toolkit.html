@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unplugged Prop Toolkit Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #E0E7FF;
+            --text-dark: #111827;
+            --text-gray: #4B5563;
+            --bg-page: #F3F4F6;
+            --bg-doc: #FFFFFF;
+            --border-color: #D1D5DB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 2rem 0;
+        }
+
+        .document-container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background: var(--bg-doc);
+            padding: 20mm;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .intro-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+
+        .prop-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .prop-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .prop-icon {
+            font-size: 2rem;
+            background-color: #FAFAFA;
+            border: 1px solid var(--border-color);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .content h3 {
+            font-size: 14px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .content p {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+        }
+
+        .action-list {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .action-list li {
+            margin-bottom: 4px;
+        }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            background-color: #4338CA;
+        }
+
+        @media print {
+            @page { size: A4; margin: 20mm; }
+            body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .document-container { box-shadow: none; padding: 0; margin: 0; max-width: none; border-radius: 0; width: 100%; }
+            .print-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Toolkit to PDF (A4)</button>
+
+    <div class="document-container">
+        
+        <div class="header">
+            <h1>Unplugged Prop Toolkit</h1>
+            <p>Teach Digital Citizenship Offline Using Analog Materials</p>
+        </div>
+
+        <div class="intro-box">
+            <strong>The Goal:</strong> You do not need real devices to teach 3-to-4-year-olds digital citizenship. Use this list of physical classroom props to embed digital concepts gracefully into dramatic play, sorting activities, and circle time.
+        </div>
+
+        <div class="prop-list">
+            
+            <!-- Prop 1 -->
+            <div class="prop-item">
+                <div class="prop-icon">📱</div>
+                <div class="content">
+                    <h2>Cardboard "Devices"</h2>
+                    <h3>Used For: Transitions, Gentle Hands & Taking Turns</h3>
+                    <p>Create completely inert tablets or smartphones using cardboard, or use old phones with the batteries removed. Place these in the dramatic play center.</p>
+                    <ul class="action-list">
+                        <li>Practice physically handing a device gently to a friend.</li>
+                        <li>Practice putting the device in a designated "sleep box" when a transition timer rings.</li>
+                        <li>Learn the vocabulary of asking for a turn.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Prop 2 -->
+            <div class="prop-item">
+                <div class="prop-icon">🖼️</div>
+                <div class="content">
+                    <h2>Empty Picture Frames</h2>
+                    <h3>Used For: Faces First (Relationships)</h3>
+                    <p>Use wooden or plastic picture frames with the glass removed.</p>
+                    <ul class="action-list">
+                        <li>Have children look at each other face-to-face through the empty frame.</li>
+                        <li>Practice making eye contact and reading facial expressions.</li>
+                        <li>Reinforce that the people in the room are more important than what’s on a screen.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Prop 3 -->
+            <div class="prop-item">
+                <div class="prop-icon">🃏</div>
+                <div class="content">
+                    <h2>Sorting Picture Cards</h2>
+                    <h3>Used For: Real vs. Pretend (Media Literacy)</h3>
+                    <p>Laminating cards showing two versions of an object: a high-quality photograph of the real object and a cartoon/illustrated version of it.</p>
+                    <ul class="action-list">
+                        <li>Sort real animals versus cartoon animals from popular shows.</li>
+                        <li>Ask questions: "Can this dog talk to us like the one on TV?"</li>
+                        <li>Helps children begin distinguishing the physical world from fictional media logic.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Prop 4 -->
+            <div class="prop-item">
+                <div class="prop-icon">🛑</div>
+                <div class="content">
+                    <h2>"Stop" & "Ask" Badges</h2>
+                    <h3>Used For: Ask A Grown-Up (Privacy & Safety)</h3>
+                    <p>Wearable badges or physical stop signs on a popsicle stick that are placed near any classroom screen (like the teacher’s computer or a smartboard).</p>
+                    <ul class="action-list">
+                        <li>Children practice the physical action of holding up the stop sign and looking for a teacher.</li>
+                        <li>Reinforces the absolute boundary condition that children never touch digital interfaces without an adult present.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
